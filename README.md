@@ -1,22 +1,22 @@
-## 豊四季タイニーBASIC for Arduino STM32 V0.5
+# Toyoshi Tiny BASIC for Arduino STM32 V0.5
 
-![サンプル画像](./image/sample.jpg)
+! [Beispielbild](./image/sample.jpg)
 
-※本ソースにはビデオ出力・PS/2キーボード対応のブランチ版があります(最終的に合流予定)。  
+※ Diese Version verfügt über einen Videoausgang · PS/2-Tastaturkompatible Zweigversion (wird eventuell zusammengeführt).
 https://github.com/Tamakichi/ttbasic_arduino/tree/ttbasic_arduino_ps2_ntsc  
 
-本プログラムは、下記オリジナル版をArduino STM32向けに移植・機能版です.  
-STM32F103C8T6搭載のBlue Pillボード、Black Pillボードでの動作を確認しています.  
-※機能の大幅追加のため、Arduino MEGEは非対応となりました.  
+Dieses Version ist eine portierung der Originalversion für Arduino STM32.
+Getestet für den Betrieb auf einem STM32F103C8T6. 
+* Arduino MEGA wird nicht mehr unterstützt.
 
-- オリジナル版配布サイト  
+- Originalversion-Website  
  https://github.com/vintagechips/ttbasic_arduino  
- 関連情報 [電脳伝説 Vintagechips - 豊四季タイニーBASIC確定版](https://vintagechips.wordpress.com/2015/12/06/%E8%B1%8A%E5%9B%9B%E5%AD%A3%E3%82%BF%E3%82%A4%E3%83%8B%E3%83%BCbasic%E7%A2%BA%E5%AE%9A%E7%89%88/)
+Verwandte Informationen [Dent Brain Legende Vintagechips - Toyosaki Tiny BASIC hard Version](https://vintagechips.wordpress.com/2015/12/06/%E8%B1%8A%E5%9B%9B%E5%AD%A3%E3%82%BF%E3%82%A4%E3%83%8B%E3%83%BCbasic%E7%A2%BA%E5%AE%9A%E7%89%88/)
 
-**「豊四季タイニーBASIC」**の著作権は開発者**のTetsuya Suzuki**氏にあります.  
-プログラム利用については、オリジナル版の著作権者の配布条件に従うものとします.  
-著作権者の同意なしに経済的な利益を得てはいけません.  
-この条件のもとで、利用、複写、改編、再配布を認めます.  
+Entwicklers **.
+Hinsichtlich der Nutzung des Programms unterliegt es den Vertriebsbedingungen des Urheberrechtsinhabers der Originalversion.
+Erhalten Sie keine wirtschaftlichen Vorteile ohne die Zustimmung des Urheberrechtsinhabers.
+Wir erlauben Ihnen, unter diesen Bedingungen zu verwenden, zu kopieren, umzuorganisieren und weiterzuverteilen.
 
 **修正内容**
 - ラインエディタ部の差し換え  
