@@ -2,6 +2,7 @@
 
 ! [Beispielbild](./image/sample.jpg)
 
+
 ※ Diese Version verfügt über einen Videoausgang · PS/2-Tastaturkompatible Zweigversion (wird eventuell zusammengeführt).
 https://github.com/Tamakichi/ttbasic_arduino/tree/ttbasic_arduino_ps2_ntsc  
 
