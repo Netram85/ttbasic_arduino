@@ -71,19 +71,19 @@
 // 4) Fix: Ändern Sie <> zu! =
 // 2027/04/12 Änderung die verfügbare Anzahl von Arrayvariablen auf 100
 
-// I2Cライブラリの選択
-#define I2C_USE_HWIRE  1     // 1:HWire 0:Wire(ソフトエミュレーション)
+// I2C Bibliotheken auswahl
+#define I2C_USE_HWIRE  1     // 1:HWire 0:Wire(Software-Emulation)
 
-// 内蔵RTCの利用指定
-#define USE_INNERRTC   1     // 0:利用しない 1:利用する
+// Nutzungsspezifikation der eingebauten RTC
+#define USE_INNERRTC   1     // 0: nicht verwendet 1: verwendet
 
-// SRAMの物理サイズ(バイト)
+// Physische Größe von SRAM (Byte)
 #define SRAM_SIZE      20480 // STM32F103C8T6
 
 #include <Arduino.h>
 #include <stdlib.h>
 
-// I2Cライブラリの利用設定
+// Verwendungseinstellung der I2C-Bibliothek
 #if I2C_USE_HWIRE == 0
   #include <Wire.h>
   #define I2C_WIRE  Wire
@@ -93,24 +93,24 @@
   #define I2C_WIRE  HWire
 #endif
 
-// プロフラム保存用定義
+// Definition zum Speichern eines Programms
 #include <TFlash.h>
 #define FLASH_PAGE_SIZE        1024
 #define FLASH_START_ADDRESS    ((uint32_t)(0x8000000))
-#define FLASH_PAGE_NUM         128     // 全ページ数
-#define FLATH_USE_PAGE_NUM     (4*2)   // 利用ページ数(1プログラム2ページ利用)
-#define FLASH_PRG_START_PAGE   118     // 利用開始ページ
+#define FLASH_PAGE_NUM         128     // Die Gesamtzahl der Seiten
+#define FLATH_USE_PAGE_NUM     (4*2)   // Anzahl der verwendeten Seiten (1 Programm 2 Seiten)
+#define FLASH_PRG_START_PAGE   118     // Verwendungsstartseite
 
-// EEPROMエミュレーション
+// EEPROM-Emulation
 #include <EEPROM.h>
 extern EEPROMClass EEPROM;
 #define EEPROM_PAGE0 (((uint32_t)(0x8000000))+FLASH_PAGE_SIZE*(FLASH_PAGE_NUM-2))
 #define EEPROM_PAGE1 (((uint32_t)(0x8000000))+FLASH_PAGE_SIZE*(FLASH_PAGE_NUM-1))
 
-// スクリーン管理
+// Bildschirmverwaltung
 #include "tscreen.h"
 
-// RTC用宣言
+// Erklärung für RTC
 #if USE_INNERRTC == 1
   #include <RTClock.h>
   #include <time.h>
@@ -125,29 +125,29 @@ extern EEPROMClass EEPROM;
 #define SIZE_ARRY 100    // Array area size
 #define SIZE_GSTK 6      // GOSUB stack size(2/nest)
 #define SIZE_LSTK 15     // FOR stack size(5/nest)
-#define SIZE_MEM  1024   // 自由利用データ領域
+#define SIZE_MEM  1024   // Frei verwendbarer Datenbereich
 
 // Depending on device functions
 // TO-DO Rewrite these functions to fit your machine
 #define STR_EDITION "Arduino STM32"
 
-// Terminal control(文字の表示・入力は下記の3関数のみ利用)
+// Terminal control(Verwenden Sie nur die folgenden 3 Funktionen zum Anzeigen / Eingeben von Zeichen)
 #define c_getch( ) sc.get_ch()
 #define c_kbhit( ) sc.isKeyIn()
 #define c_putch(c) sc.putch(c)
 
-// 定数
+// Konstante
 #define CONST_HIGH   1
 #define CONST_LOW    0
 #define CONST_LSB    LSBFIRST
 #define CONST_MSB    MSBFIRST
 #define SRAM_TOP     0x20000000
 
-// スクリーン制御
+//Bildschirmsteuerung
 tscreen sc; 
 #define KEY_ENTER 13
 
-// 追加コマンドの宣言
+// Deklaration von zusätzlichen Befehlen
 void icls();
 void iwait(uint16_t tm);
 void ilocate();
@@ -175,7 +175,7 @@ void ieepformat();
 void ieepwrite();
 int16_t ieepread(uint16_t addr);
 
-// tick用支援関数
+// Unterstützungsfunktion für Tick
 void resetTick() {
   systick_uptime_millis = 0;
 }
@@ -192,7 +192,7 @@ short getrnd(short value) {
 // Prototypes (necessity minimum)
 short iexp(void);
 
-// ピンモード
+// Pin-Modus
 const WiringPinMode pinType[] = {
   OUTPUT_OPEN_DRAIN, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN, INPUT_ANALOG, INPUT, 
 };
@@ -257,7 +257,7 @@ enum {
 };
 
 // List formatting condition
-// 後ろに空白を入れない中間コード
+// Zwischencode ohne Leerzeichen
 const unsigned char i_nsa[] = {
   I_RETURN, I_END, 
   I_CLS,
@@ -278,14 +278,14 @@ const unsigned char i_nsa[] = {
   I_LSB, I_MSB, I_MEM, I_VRAM, I_MVAR, I_MARRAY, I_EEPREAD,
 };
 
-// 前が定数か変数のとき前の空白をなくす中間コード
+// Intermediate-Code, der den vorherigen Speicherplatz eliminiert, wenn der Former konstant oder variabel ist
 const unsigned char i_nsb[] = {
   I_MINUS, I_PLUS, I_MUL, I_DIV, I_DIVR, I_OPEN, I_CLOSE, I_LSHIFT, I_RSHIFT, I_OR, I_AND,
   I_GTE, I_SHARP, I_GT, I_EQ, I_LTE, I_NEQ, I_LT, I_LNOT, I_BITREV, I_XOR,
   I_COMMA, I_SEMI, I_COLON, I_SQUOT, I_EOL
 };
 
-// 必ず前に空白を入れる中間コード
+// Achten Sie darauf, vorher ein Leerzeichen einzufügen. Zwischencode
 const unsigned char i_sf[] = {
   I_ATTR, I_CLS, I_COLOR, I_DATE, I_END, I_FILES,
   I_GETDATE,I_GETTIME,I_GOSUB,I_GOTO,I_GPIO,I_INKEY,I_INPUT,I_LET,I_LIST,
