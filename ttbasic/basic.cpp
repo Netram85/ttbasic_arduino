@@ -70,6 +70,71 @@
 //  4)修正: <>を!=に変更
 // 2027/04/12 配列変数利用可能数を100に変更
 //
+//Übersetzung der Änderungen von Verbrenner mit Google Übersetzer 18.10.2017 (DEUTSCH/GERMAN)
+// 2017/03/22 Korrektur, Arduino STM 32, Vollbild kompatibel, von Takeshi San
+// 2017/03/25 Korrektur, Funktion INKEY () hinzufügen, gesperrten Schlüssel von [ESC] in [CTRL-C]
+// 2017/03/26 Korrektur, Änderung / Ergänzung wie unten in der Grammatik
+// 1) Ändern: Ändern Sie den Anweisungsbegrenzer von ';' in ':'
+// 2) Addition: Aktivieren Sie die Zeilenfortsetzung von PRINT auch in ';'
+// 3) Addition: Inkonsistenzbeurteilung des IF-Satzes auch durch "<>" möglich
+// 4) Addition: Addition der Operator-Modulo-Berechnung '%'
+// 5) Addition: VPEEK () Zeichencode der Bildschirmpositionsreferenz
+// 6) Addition: Die Funktion CHR $ (), ASC ()
+//
+// 2017/03 / 29 Änderung, Änderung / Ergänzung wie unten in der Grammatik
+// 1) Addition: RENUM-Befehl hinzugefügt
+// 2) Addition: Addition der Konstanten HIGH, LOW, Pin-Nummer, Pin-Mode-Einstellung
+// 2017/03/30 Änderung, Änderung / Ergänzung unten in der Grammatik
+// 1) Addition: Add GPIO, OUT, IN, ANA-Befehl
+// 2) Ändern: Ändern Sie SIZE () in FREE ()
+// 3) Ändern: Setzen Sie nicht OK als Fehler
+// 4) Änderung: Korrekte Verarbeitung von INKEY (), die Programmunterbrechung auch in [ESC]
+// 5) Addition: Hinzufügen der Fehlermeldung "Ungültiger Wert"
+//
+// 31.03.2017 Änderung, Änderung / Ergänzung wie unten in der Grammatik
+// 1) Addition: Addition der Funktion HEX $ ()
+// 2) Addition: Hexadezimale Darstellung unterstützt: $ + hexadezimales Zeichen (1 bis 4 Ziffern)
+// 3) Fix: Deaktivieren Sie einfache Anführungszeichen im Zeichenketten-Gehäuse
+// 4) Addition: Aktivieren Sie Kommentaranweisungen in einfachen Anführungszeichen
+// 5) Zusatz: Etikettenkorrespondenz für GOTO, GOSUB (zB: GOTO "label" Doppelkästchen)
+// 7) Addition: Sequentielle Werteinstellung des Arrays wurde aktiviert (zB @ (0) = 1, 2, 3, 4, 5)
+// 8) Korrektur: Fehlerbehandlung, wenn 0 oder weniger für die Array-Indexspezifikation angegeben ist
+// 9) Addition: SHIFTOUT-Befehl hinzugefügt
+// 10) Addition: Addition von Schichtoperatoren ">>" und "<<" (ohne Berücksichtigung des negativen Vorzeichens)
+// 11) Addition: Addition von BIN $ ()
+// 12) Addition: Addition des arithmetischen Produkts, arithmetische Summe '|', '&' Operator
+// 13) Addition: TICK () Zeit vom Start bis zur Gegenwart erfassen
+// 2017/04 / 1 Änderung, die folgende Änderung / Ergänzung in der Grammatik
+// 1) Fix: Fehlerkorrektur für BIN $ ()
+// 2) Zugabe: Zugabe von PEEK, POKE
+// 2017/04/2 Korrektur, Änderung / Ergänzung unten in der Grammatik
+// 3) Addition: Konstantes MEM, Addition von VRAM, Addition des Arbeitsbereichs MEM
+// 4) Addition: Addition des I 2 C-Befehls, I 2 CW (), I 2 CR ()
+// 5) Addition: Der SHIFTIN () Befehl wurde hinzugefügt
+// 6) Addition: Hinzufügen von SAVE, LOAD-Befehl
+// 7) Addition: Hinzufügen des Befehls SETDATE, GETDATE, GETTIME, DATE
+// 8) Addition: mit Ziffernbezeichnung # in PRINT-Anweisung - wird mit 0 ausgefüllt
+// 2017/04/4 Änderung, die folgende Änderung / Ergänzung in der Grammatik
+// 1) Korrektur: Korrektur der Argumentfehlerprüfung von LOAD, SAVE (nur unterlassen oder konstanter Wert ist erlaubt)
+// 2) Fix: Zusätzliche Gültigkeitsprüfung des RENUM-Arguments
+// 3) Addition: Addition von RESTTICK
+// 4) Korrektur: Trimmbearbeitung des rechten Leerzeichens in der Kommandozeile hinzugefügt (Gegenmaßnahme gegen Speicherplatzgrammatikfehler)
+// 5) Hinzufügung: Hinzufügen von REDRAW (Konsolenbildwiedergabe)
+// 6) Korrektur: Das zweite Argument von LIST ermöglichte es, die Display-Endzeile anzugeben
+// 2017/04 / 5 Änderung, Änderung / Ergänzung wie unten in der Grammatik
+// 1) Addition: ELSE-Konformität der IF-Anweisung
+// 2) Behebung: Es wurde ein Problem behoben, dass das Leerzeichen vor der Ausführungsanweisung der IF-Anweisung an der LIST-Ausgabe verstopft ist
+// 2017/04/6 Änderung, Änderung / Ergänzung wie unten in der Grammatik
+// 1) Addition: EEPROM (zur Emulation) Addition von EEPFORMAT, EEPWRITE, EEPREAD
+// 2) Korrektur: Adressänderung des Programmspeicherbereichs mit EEPROM-Korrespondenz
+// 3) Zusatz: Ich möchte Programme auf der angegebenen Zeile mit dem Befehl DELETE löschen können
+// 4) Korrektur: Cursor wird durch INPUT-Anweisung angezeigt, BEEP wird von nicht numerischem Wert gespielt
+// 2017/04 / 7 Änderung, Änderung / Ergänzung wie unten in der Grammatik
+// 1) Korrektur: Die Standardeinstellungsfunktion wurde hinzugefügt, wenn der INPUT-Anweisungsüberlauf auftritt
+// 2) Korrektur: Argumentbereichsprüfung von RND hinzugefügt, Spezifikation von 0 auf weniger als angegeben geändert
+// 3) Addition: Addition von logischem Produkt AND, logische Addition ODER, Addition von NOT, Bitinversion ~, Addition von XOR ^
+// 4) Fix: Ändern Sie <> zu! =
+// 2027/04/12 Änderung die verfügbare Anzahl von Arrayvariablen auf 100
 
 // I2Cライブラリの選択
 #define I2C_USE_HWIRE  1     // 1:HWire 0:Wire(ソフトエミュレーション)
