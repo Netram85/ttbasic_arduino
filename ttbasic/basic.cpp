@@ -5,7 +5,7 @@
  */
 //
 //
-//Übersetzung der Änderungen von Verbrenner mit Google Übersetzer 18.10.2017 (DEUTSCH/GERMAN)
+//Übersetzung der Änderungen von Verbrenner/(Netram85) mit Google Übersetzer 18.10.2017 (DEUTSCH/GERMAN)
 // 2017/03/22 Korrektur, Arduino STM 32, Vollbild kompatibel, von Takeshi San
 // 2017/03/25 Korrektur, Funktion INKEY () hinzufügen, gesperrten Schlüssel von [ESC] in [CTRL-C]
 // 2017/03/26 Korrektur, Änderung / Ergänzung wie unten in der Grammatik
