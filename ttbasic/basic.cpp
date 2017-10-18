@@ -1,6 +1,7 @@
 /*
  TOYOSHIKI Tiny BASIC for Arduino
  (C)2012 Tetsuya Suzuki
+ Übersetzung ins deutsche von Netram85 mit hilfe von Google Übersetzung (Translate)
  GNU General Public License
  */
 //
