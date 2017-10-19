@@ -19,29 +19,29 @@ Hinsichtlich der Nutzung des Programms unterliegt es den Vertriebsbedingungen de
 Erhalten Sie keine wirtschaftlichen Vorteile ohne die Zustimmung des Urheberrechtsinhabers.
 Wir erlauben Ihnen, unter diesen Bedingungen zu verwenden, zu kopieren, umzuorganisieren und weiterzuverteilen.
 
-**修正内容**
-- ラインエディタ部の差し換え  
- オリジナルのラインエディタ部分をフルスリーンテキストエディタに差し換えました.  
- ターミナル上で昔のBASICっぽい編集操作を出来るようにしました.  
-
-- コマンドの追加  
-  - **RENUM** ：行番号再割り当て  
-  - **CLS** ：画面クリア  
-  - **LOCATE**：カーソル移動  
-  - **COLOR**： 文字色の指定  
-  - **ATTR**：文字装飾の指定  
-  - **WAIT**：時間待ち  
-  - **VPEEK**：スクリーン位置の文字コード参照  
-  - **CHR$()**、**HEX$()**、**BIN$()**、**ASC()**、**INKEY()** 関数の追加  
-  - **TICK()** 関数、**RESETTIK**の追加  
-  - **?**：**PRINT**文の省略系を追加  
-  - **GPIO**、**OUT**、**IN**、**ANA**、**SHIFTOUT**、**SHIFTIN**：GPIO利用コマンドの追加  
-  - **I2CW**、**I2CR**：I2C利用コマンドの追加  
-  - **POKE**、**PEEK**：メモリ領域参照コマンドの追加  
-  - **DATE**、**SETDATE**、**GETTIME**: 内蔵RTC利用コマンド追加  
-  - **SAVE**、**LOAD**： 内部フラッシュメモリへのプログラム保存機能の追加  
-  - **EEPFORMAT**,**EEPWRITE**,**EEPREAD**コマンドの追加(仮想EEPROM機能)  
-  - **AND**、**OR**、!、~、!の追加  
+** Korrekturinhalt **
+- Ersetzen des Zeileneditorabschnittes
+  Derursprüngliche Zeileneditor wurde durch einen Texteditor in voller Länge ersetzt.
+  Es wurde möglich gemacht, alte BASIC-ähnliche Bearbeitungsvorgänge am Terminal durchzuführen.
+  
+- Neue Befehle 
+  - **RENUM** ：Zeilennummer Neuzuweisung 
+  - **CLS** ：Bildschirm löschen 
+  - **LOCATE**：Cursor bewegen  
+  - **COLOR**： Bezeichnung der Zeichenfarbe 
+  - **ATTR**：Bezeichnung der Zeichenformatierung 
+  - **WAIT**：Warten
+  - **VPEEK**：Zeige Zeichencode der Bildschirmposition  
+  - **CHR$()**、**HEX$()**、**BIN$()**、**ASC()**、**INKEY()** Funktionen hinzugefügt
+  - **TICK()** Funktion、**RESETTIK**Zusatz  
+  - **?**：**PRINT**Satzkürzel hinzufügen
+  - **GPIO**、**OUT**、**IN**、**ANA**、**SHIFTOUT**、**SHIFTIN**：GPIO-Nutzbefehl hinzufügen
+  - **I2CW**、**I2CR**：I2C   
+  - **POKE**、**PEEK**：Hinzufügender Speicherbereich Referenzbefehl
+  - **DATE**、**SETDATE**、**GETTIME**: Eingebauter RTC-Benutzungsbefehl   
+  - **SAVE**、**LOAD**： Hinzufügen der Programmspeicherfunktion zum internen Flash-Speicher
+  - **EEPFORMAT**,**EEPWRITE**,**EEPREAD**Befehl hinzugefügt - virtuelle EEPROM-Funktion
+  - **AND**、**OR**、!、~、!Zusatz  
 - 文法の変更  
   - 定数の16進数表記対応(例 $1234,$AB)  
   - 命令文区切りを';'から':'に変更  
