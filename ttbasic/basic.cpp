@@ -130,7 +130,7 @@ extern EEPROMClass EEPROM;
 
 // Depending on device functions
 // TO-DO Rewrite these functions to fit your machine
-#define STR_EDITION "Arduino STM32"
+#define STR_EDITION "Marisa32 Edition"
 
 // Terminal control(Verwenden Sie nur die folgenden 3 Funktionen zum Anzeigen / Eingeben von Zeichen)
 #define c_getch( ) sc.get_ch()
